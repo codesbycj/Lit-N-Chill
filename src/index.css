@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: #ffdf31;
+  --color-btn: #4428ce;
+  --color-sec-btn: #07404e;
+  /* Background Type Shii */
+  --tw-gradient-from: #eeedec var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(238 237 236 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+  --tw-gradient-from-position: 60%;
+  --tw-gradient-to: rgb(227 222 253 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    #e3defd var(--tw-gradient-via-position), var(--tw-gradient-to);
+  --tw-gradient-via-position: 80%;
+  --tw-gradient-to: #fcdac4 var(--tw-gradient-to-position);
+  --tw-gradient-to-position: 100%;
+  /* Background Type Shii */
+
+  --color-background: #faf6f4;
+  --color-bottom: #f7f6f5;
+}
+
+body {
+  font-family: "Rubik", sans-serif !important;
+  color: var(--color-black);
+  overflow-x: hidden;
+  background-color: black;
+}
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
