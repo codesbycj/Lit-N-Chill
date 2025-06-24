@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import Logo from "../../logo.png";
 import Search from "../../search_icon.svg";
 import Bell from "../../bell_icon.svg";
@@ -7,8 +7,22 @@ import Dropdown from "../../caret_icon.svg";
 import "./Navbar.css";
 
 export const Navbar = () => {
+  const scroll = useRef();
+
+  const handleScroll = () => {
+    if(window.scrollY >= 80) {
+      scroll.current.classList.add('dark')
+    } else {
+      scroll.current.classList.remove('dark')
+    }
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll)
+  }, [])
+
   return (
-    <div className="navbar">
+    <div className="navbar" ref={scroll}>
       <div className="navLeft">
         <img src={Logo} alt="" srcSet="" />
         {/* <ul>

@@ -45,7 +45,7 @@ export const Home = () => {
               </div>
             </div>
 
-            <TitleCards title={"Popular on Netflix"} category={"popular"}/>
+            <TitleCards title={"Popular on Netflix"} category={"popular"} id={'id'}/>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export const Home = () => {
           <TitleCards title={"Blockbuster Movies"} category={"now_playing"}/>
           <TitleCards title={"Top Netflix Shows"} category={"top_rated"}/>
           <TitleCards title={"Upcoming"} category={"upcoming"}/>
-          <TitleCards title={"Topics for You"} category={"upcoming"}/>
+          <TitleCards title={"Topics for You"} category={"popular"}/>
         </div>
       </div>
 
