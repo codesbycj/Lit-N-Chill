@@ -5,6 +5,7 @@ import Bell from "../../bell_icon.svg";
 import Profile from "../../profile_img.png";
 import Dropdown from "../../caret_icon.svg";
 import "./Navbar.css";
+import { logOut } from "../../../firebase";
 
 export const Navbar = () => {
   const scroll = useRef();
@@ -45,7 +46,7 @@ export const Navbar = () => {
           <img src={Dropdown} alt="" />
 
           <div className="dropdown">
-            <p>Sign out of Netflix </p>
+            <p onClick={() => {logOut()}}>Sign out of Netflix </p>
           </div>
         </div>
       </div>

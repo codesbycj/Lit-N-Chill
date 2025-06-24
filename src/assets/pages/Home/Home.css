@@ -80,3 +80,29 @@
 .moreCards {
   padding-left: 6%;
 }
+
+
+@media (max-width: 1024px) {
+  .heroCaption .titleCards {
+    display: none;
+  }
+
+  .heroBtns {
+    margin-bottom: 30px;
+  }
+
+
+}
+
+@media (max-width: 800px) {
+  .heroCaption  {
+    padding-left: 4%;
+  }
+
+  .captionImg {
+    margin-bottom: 10px;
+    width: 40%;
+  }
+
+  
+}

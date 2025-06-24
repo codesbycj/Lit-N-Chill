@@ -36,7 +36,7 @@ export const Player = () => {
   return (
     <div className="player"> 
       <img src={Back} alt="" onClick={() => {
-        navigate(-2)
+        navigate("/")
       }}/>
       <iframe
         src={`https://www.youtube.com/embed/${apiData.key}`}
