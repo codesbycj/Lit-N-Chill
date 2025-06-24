@@ -1,34 +1,55 @@
-import React, { useEffect, useRef } from 'react'
-import './TitleCards.css'
-import Cards from '../../cards/Cards_data'
+import React, { useEffect, useRef, useState } from "react";
+import "./TitleCards.css";
+import Cards from "../../cards/Cards_data";
+
+export const TitleCards = ({ title, category }) => {
+  const cardsRef = useRef();
+  const [apiData, setApiData] = useState([])
+
+  const options = {
+    method: "GET",
+    headers: {
+      accept: "application/json",
+      Authorization:
+        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0NzQ1MTQ4MWYzZmNjNTZlZDQwY2MzOTFlMjdjNmYzNCIsIm5iZiI6MTc1MDQzMjg2Ni4xNTI5OTk5LCJzdWIiOiI2ODU1N2M2MjFiNjk4MTUwMzMxYzEyMmYiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.zpzz8gF3tm-AlgJiRNErgHQtmTohnUbbXNYs9DndE6E",
+    },
+  };
 
 
+  
+  const handleWheel = (e) => {
+    if (!cardsRef.current) return;
+    e.preventDefault();
 
-export const TitleCards = ({title, category}) => {
-   const cardsRef = useRef();
+    cardsRef.current.scrollLeft += e.deltaY * 0.5;
+  };
 
-    const handleWheel = (e) => {
-      if(!cardsRef.current) return;
-      e.preventDefault();
-      
-      cardsRef.current.scrollLeft += e.deltaY * 0.5;
-    }
+  useEffect(() => {
+      fetch(
+    `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=1`,
+    options
+  )
+    .then((res) => res.json())
+    .then((res) => setApiData(res.results))
+    .catch((err) => console.error(err));
 
-    useEffect(() => {
-      cardsRef.current.addEventListener('wheel', handleWheel)
-    },[])
+
+    cardsRef.current.addEventListener("wheel", handleWheel);
+  }, []);
 
   return (
-    <div className='titleCards'>
+    <div className="titleCards">
       <h2>{title}</h2>
       <div className="cardList" ref={cardsRef}>
-        {Cards.map((card, index) =>  {
-          return <div className='card' key={index}>
-            <img src={card.image} alt="" />
-            <p>{card.name}</p>
+        {apiData.map((card) => {
+          return (
+            <div className="card" key={card.id}>
+              <img src={`https://image.tmdb.org/t/p/w500/`  + card.backdrop_path} alt="" />
+              <p>{card.original_title}</p>
             </div>
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
