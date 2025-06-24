@@ -17,12 +17,16 @@
   );
 }
 
+.theCaption {
+  width: 50%;
+}
+
 .heroCaption {
   position: absolute;
-  width: 50%;
+  width: 100%;
   padding-left: 6%;
   font-size: 18px;
-  bottom: 10%;
+  bottom: 0;
 }
 
 .heroCaption .lilTop {
@@ -69,4 +73,8 @@
 
 .heroBtn .btn.darkBtn:hover {
     background: #6d6d6e66;
+}
+
+.moreCards {
+  padding-left: 6%;
 }
